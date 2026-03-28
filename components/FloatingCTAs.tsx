@@ -41,10 +41,10 @@ export function FloatingCTAs() {
         transition={{ delay: 1.4, type: "spring", stiffness: 300 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
-        style={{ backgroundColor: "#d47828" }}
+        className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg text-primary-foreground"
+        style={{ backgroundColor: "var(--primary)" }}
       >
-        <Phone size={20} color="#1a0a00" />
+        <Phone size={20} />
       </motion.a>
     </div>
   );

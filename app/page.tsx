@@ -68,11 +68,10 @@ function HeroSection() {
           initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
           animate={{ opacity: 1, clipPath: "inset(0 0% 0 0)" }}
           transition={{ delay: 0.3, duration: 0.9, ease: "easeOut" }}
-          className="text-cream font-bold leading-none mb-4"
+          className="text-foreground leading-none mb-4"
           style={{
-            fontFamily: "var(--font-playfair)",
             fontSize: "clamp(38px, 8vw, 72px)",
-            textShadow: "0 2px 20px rgba(0,0,0,0.8)",
+            textShadow: "0 2px 20px rgba(0,0,0,0.3)",
           }}
         >
           {heroItems[0].content}
@@ -96,8 +95,8 @@ function HeroSection() {
           >
             <Link
               href="/menu"
-              className="inline-block px-8 py-3 rounded-md font-semibold text-espresso transition-all duration-200 hover:scale-105 hover:brightness-110"
-              style={{ backgroundColor: "#d47828", fontFamily: "var(--font-dm-sans)" }}
+              className="inline-block px-8 py-3 rounded-md font-semibold text-primary-foreground transition-all duration-200 hover:scale-105 hover:brightness-110"
+              style={{ backgroundColor: "var(--primary)", fontFamily: "var(--font-dm-sans)" }}
             >
               Explore Menu
             </Link>
@@ -109,7 +108,7 @@ function HeroSection() {
           >
             <Link
               href="/contact"
-              className="inline-block px-8 py-3 rounded-md font-semibold text-cream border border-cream/40 transition-all duration-200 hover:border-cream hover:bg-white/10"
+              className="inline-block px-8 py-3 rounded-md font-semibold text-foreground border border-foreground/40 transition-all duration-200 hover:border-foreground hover:bg-foreground/5"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
               Find Us
@@ -138,7 +137,7 @@ function HeroSection() {
 // ─── About Snippet ────────────────────────────────────────────────────────────
 function AboutSection() {
   return (
-    <section className="relative py-20 lg:py-28 overflow-hidden" style={{ backgroundColor: "#1a0a00" }}>
+    <section className="relative py-20 lg:py-28 overflow-hidden" style={{ backgroundColor: "var(--background)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
           {/* Image side (60%) */}
@@ -160,7 +159,7 @@ function AboutSection() {
             {/* Grain + amber overlay */}
             <div className="absolute inset-0 grain-overlay" />
             <div className="absolute top-0 left-0 w-64 h-64"
-              style={{ background: "radial-gradient(circle, rgba(212,120,40,0.2) 0%, transparent 70%)" }} />
+              style={{ background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)", opacity: 0.15 }} />
           </motion.div>
 
           {/* Text side (40%) */}
@@ -173,12 +172,12 @@ function AboutSection() {
           >
             <div className="label-accent">Our Story</div>
             <h2
-              className="text-cream leading-tight"
-              style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(28px, 4vw, 42px)" }}
+              className="text-foreground leading-tight"
+              style={{ fontSize: "clamp(28px, 4vw, 42px)" }}
             >
               Where Every<br />Cup Has a Story
             </h2>
-            <p className="text-cream/65 leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)", fontSize: "17px" }}>
+            <p className="text-foreground/65 leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)", fontSize: "17px" }}>
               Nestled in Mumbra, GO-SSIP Café & Restro is a sanctuary where premium coffee meets international cuisine. We blend warmth, craft, and community into every experience — from your morning espresso to a late-night boba.
             </p>
 
@@ -215,36 +214,36 @@ function FeaturedMenuSection() {
   const featured = menuItems.filter((item) => item.isFeatured).slice(0, 4);
 
   return (
-    <section className="relative py-20 lg:py-28" style={{ backgroundColor: "#2d1200" }}>
+    <section className="relative py-20 lg:py-28" style={{ backgroundColor: "var(--background)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
-        >
-          <div className="label-accent mb-3">Fan Favourites</div>
-          <h2
-            className="text-cream"
-            style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(28px, 5vw, 44px)" }}
-          >
-            What We&apos;re Famous For
-          </h2>
-        </motion.div>
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.6 }}
+           className="text-center mb-14"
+         >
+           <div className="label-accent mb-3">Fan Favourites</div>
+           <h2
+             className="text-foreground"
+             style={{ fontSize: "clamp(28px, 5vw, 44px)" }}
+           >
+             What We&apos;re Famous For
+           </h2>
+         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {featured.map((item, i) => (
             <motion.div
-              key={item._id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(212,120,40,0.25)" }}
-              className="rounded-2xl overflow-hidden cursor-pointer transition-shadow"
-              style={{ backgroundColor: "#1a0a00", border: "1px solid rgba(212,120,40,0.15)" }}
-            >
+               key={item._id}
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.5, delay: i * 0.1 }}
+               whileHover={{ y: -4, boxShadow: "0 12px 40px var(--primary-alpha, rgba(255,102,0,0.15))" }}
+               className="rounded-2xl overflow-hidden cursor-pointer transition-shadow"
+               style={{ backgroundColor: "var(--background)", border: "1px solid var(--border)" }}
+             >
               <div className="relative" style={{ aspectRatio: "1" }}>
                 <Image
                   src={item.imageUrl}
@@ -261,7 +260,7 @@ function FeaturedMenuSection() {
               </div>
               <div className="p-4">
                 <div className="label-accent mb-2">{categoryLabels[item.category]}</div>
-                <h3 className="text-cream font-bold mb-2" style={{ fontFamily: "var(--font-playfair)", fontSize: "18px" }}>
+                <h3 className="text-foreground font-bold mb-2" style={{ fontSize: "18px" }}>
                   {item.name}
                 </h3>
                 <p className="text-cream/50 text-sm leading-snug" style={{ fontFamily: "var(--font-dm-sans)" }}>
@@ -280,12 +279,12 @@ function FeaturedMenuSection() {
           className="text-center mt-12"
         >
           <Link
-            href="/menu"
-            className="inline-block px-8 py-3 rounded-md font-semibold text-espresso transition-all hover:scale-105 hover:brightness-110"
-            style={{ backgroundColor: "#d47828", fontFamily: "var(--font-dm-sans)" }}
-          >
-            Explore Full Menu →
-          </Link>
+             href="/menu"
+             className="inline-block px-8 py-3 rounded-md font-semibold text-primary-foreground transition-all hover:scale-105 hover:brightness-110"
+             style={{ backgroundColor: "var(--primary)", fontFamily: "var(--font-dm-sans)" }}
+           >
+             Explore Full Menu →
+           </Link>
         </motion.div>
       </div>
     </section>
@@ -325,8 +324,8 @@ function AmbienceVideoSection() {
         className="absolute inset-0 w-full h-full object-cover"
       />
       {/* Amber letterbox top/bottom */}
-      <div className="absolute inset-x-0 top-0 h-1/4" style={{ background: "linear-gradient(to bottom, rgba(212,120,40,0.3), transparent)" }} />
-      <div className="absolute inset-x-0 bottom-0 h-1/4" style={{ background: "linear-gradient(to top, rgba(212,120,40,0.3), transparent)" }} />
+      <div className="absolute inset-x-0 top-0 h-1/4" style={{ background: "linear-gradient(to bottom, var(--primary), transparent)", opacity: 0.2 }} />
+      <div className="absolute inset-x-0 bottom-0 h-1/4" style={{ background: "linear-gradient(to top, var(--primary), transparent)", opacity: 0.2 }} />
       {/* Dark vignette */}
       <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.55) 100%)" }} />
       {/* Quote overlay */}
@@ -349,7 +348,7 @@ function AmbienceVideoSection() {
 // ─── Instagram Teaser ────────────────────────────────────────────────────────
 function InstagramSection() {
   return (
-    <section className="py-20 lg:py-28" style={{ backgroundColor: "#1a0a00" }}>
+    <section className="py-20 lg:py-28" style={{ backgroundColor: "var(--background)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -394,15 +393,15 @@ function InstagramSection() {
 
         <div className="text-center">
           <a
-            href="https://instagram.com/gossip_cafeandrestro"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-md font-semibold text-cream border border-amber/40 hover:border-amber hover:bg-amber/10 transition-all"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
-          >
-            <InstagramIcon size={18} className="text-amber" />
-            Follow @gossip_cafeandrestro →
-          </a>
+             href="https://instagram.com/gossip_cafeandrestro"
+             target="_blank"
+             rel="noopener noreferrer"
+             className="inline-flex items-center gap-2 px-8 py-3 rounded-md font-semibold text-foreground border border-primary/40 hover:border-primary hover:bg-primary/10 transition-all"
+             style={{ fontFamily: "var(--font-dm-sans)" }}
+           >
+             <InstagramIcon size={18} className="text-primary" />
+             Follow @gossip_cafeandrestro →
+           </a>
         </div>
       </div>
     </section>
@@ -412,7 +411,7 @@ function InstagramSection() {
 // ─── Visit Us Strip ───────────────────────────────────────────────────────────
 function VisitUsSection() {
   return (
-    <section className="py-16 relative" style={{ backgroundColor: "#2d1200" }}>
+    <section className="py-16 relative" style={{ backgroundColor: "var(--background)", borderTop: "1px solid var(--border)" }}>
       <div className="absolute inset-0 opacity-5 pointer-events-none"
         style={{ backgroundImage: "url('/images/visit_us.png')", backgroundSize: "cover", backgroundPosition: "center" }} />
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
@@ -424,12 +423,12 @@ function VisitUsSection() {
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {/* Hours */}
-          <div className="flex flex-col gap-3 p-6 rounded-xl" style={{ backgroundColor: "rgba(26,10,0,0.5)", border: "1px solid rgba(212,120,40,0.15)" }}>
-            <Clock size={22} className="text-amber" />
-            <h3 className="text-cream font-bold" style={{ fontFamily: "var(--font-playfair)", fontSize: "20px" }}>Hours</h3>
+          <div className="flex flex-col gap-3 p-6 rounded-xl" style={{ backgroundColor: "var(--secondary)", border: "1px solid var(--border)" }}>
+            <Clock size={22} className="text-primary" />
+            <h3 className="text-foreground font-bold" style={{ fontSize: "20px" }}>Hours</h3>
             <div className="flex flex-col gap-1">
-              <p className="text-cream/60 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>Mon–Fri: {formatTime(operatingHours.monday.open)} – {formatTime(operatingHours.monday.close)}</p>
-              <p className="text-cream/60 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>Sat–Sun: {formatTime(operatingHours.saturday.open)} – {formatTime(operatingHours.saturday.close)}</p>
+              <p className="text-foreground/60 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>Mon–Fri: {formatTime(operatingHours.monday.open)} – {formatTime(operatingHours.monday.close)}</p>
+              <p className="text-foreground/60 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>Sat–Sun: {formatTime(operatingHours.saturday.open)} – {formatTime(operatingHours.saturday.close)}</p>
             </div>
           </div>
 
@@ -438,29 +437,29 @@ function VisitUsSection() {
             href="https://maps.google.com/?q=GO-SSIP+Cafe+Mumbra+Thane"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col gap-3 p-6 rounded-xl transition-colors hover:border-amber/40"
-            style={{ backgroundColor: "rgba(26,10,0,0.5)", border: "1px solid rgba(212,120,40,0.15)" }}
+            className="flex flex-col gap-3 p-6 rounded-xl transition-colors hover:border-primary/40"
+            style={{ backgroundColor: "var(--secondary)", border: "1px solid var(--border)" }}
           >
-            <MapPin size={22} className="text-amber" />
-            <h3 className="text-cream font-bold" style={{ fontFamily: "var(--font-playfair)", fontSize: "20px" }}>Address</h3>
-            <p className="text-cream/60 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+            <MapPin size={22} className="text-primary" />
+            <h3 className="text-foreground font-bold" style={{ fontSize: "20px" }}>Address</h3>
+            <p className="text-foreground/60 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
               Central Empire, MM Valley C1 Road,<br />Mumbra, Thane, MH 400612
             </p>
-            <span className="text-amber text-sm font-medium" style={{ fontFamily: "var(--font-dm-sans)" }}>Get Directions →</span>
+            <span className="text-primary text-sm font-medium" style={{ fontFamily: "var(--font-dm-sans)" }}>Get Directions →</span>
           </a>
 
           {/* Contact */}
-          <div className="flex flex-col gap-3 p-6 rounded-xl" style={{ backgroundColor: "rgba(26,10,0,0.5)", border: "1px solid rgba(212,120,40,0.15)" }}>
-            <Phone size={22} className="text-amber" />
-            <h3 className="text-cream font-bold" style={{ fontFamily: "var(--font-playfair)", fontSize: "20px" }}>Contact</h3>
+          <div className="flex flex-col gap-3 p-6 rounded-xl" style={{ backgroundColor: "var(--secondary)", border: "1px solid var(--border)" }}>
+            <Phone size={22} className="text-primary" />
+            <h3 className="text-foreground font-bold" style={{ fontSize: "20px" }}>Contact</h3>
             <div className="flex flex-col gap-2">
-              <a href="tel:+919920564615" className="text-cream/60 hover:text-amber text-sm transition-colors" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <a href="tel:+919920564615" className="text-foreground/60 hover:text-primary text-sm transition-colors" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 +91 992-056-4615
               </a>
-              <a href="https://wa.me/919920564615" target="_blank" rel="noopener noreferrer" className="text-cream/60 hover:text-amber text-sm transition-colors" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <a href="https://wa.me/919920564615" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary text-sm transition-colors" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 WhatsApp Us →
               </a>
-              <a href="mailto:gossipcafe2024@gmail.com" className="text-cream/60 hover:text-amber text-sm transition-colors" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <a href="mailto:gossipcafe2024@gmail.com" className="text-foreground/60 hover:text-primary text-sm transition-colors" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 gossipcafe2024@gmail.com
               </a>
             </div>

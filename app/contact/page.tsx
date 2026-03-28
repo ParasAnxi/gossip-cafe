@@ -51,7 +51,7 @@ export default function ContactPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-[#1a0a00]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-background" />
         <div className="relative z-10 text-center px-6">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="label-accent mb-3">
             Come Visit
@@ -60,8 +60,8 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-cream font-bold"
-            style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(32px, 6vw, 56px)" }}
+            className="text-foreground font-bold"
+            style={{ fontSize: "clamp(32px, 6vw, 56px)" }}
           >
             Find Us
           </motion.h1>
@@ -69,7 +69,7 @@ export default function ContactPage() {
       </section>
 
       {/* Three Columns */}
-      <section className="py-20 lg:py-28" style={{ backgroundColor: "#1a0a00" }}>
+      <section className="py-20 lg:py-28" style={{ backgroundColor: "var(--background)" }}>
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
@@ -83,12 +83,12 @@ export default function ContactPage() {
             >
               <div>
                 <div className="label-accent mb-3">Location</div>
-                <h2 className="text-cream font-bold text-2xl mb-4" style={{ fontFamily: "var(--font-playfair)" }}>
+                <h2 className="text-foreground font-bold text-2xl mb-4">
                   Find Your Way
                 </h2>
                 <div className="flex items-start gap-3 mb-4">
-                  <MapPin size={18} className="text-amber mt-0.5 shrink-0" />
-                  <p className="text-cream/70 text-sm leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                   <MapPin size={18} className="text-primary mt-0.5 shrink-0" />
+                   <p className="text-foreground/70 text-sm leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     Central Empire, MM Valley C1 Road,<br />
                     Mumbra, Thane,<br />
                     Maharashtra 400612
@@ -97,7 +97,7 @@ export default function ContactPage() {
               </div>
 
               {/* Map Embed */}
-              <div className="rounded-xl overflow-hidden" style={{ border: "1px solid rgba(212,120,40,0.2)", height: "200px" }}>
+              <div className="rounded-xl overflow-hidden" style={{ border: "1px solid var(--border)", height: "200px" }}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.0!2d73.0!3d19.18!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDEwJzQ4LjAiTiA3M8KwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
                   width="100%"
@@ -114,7 +114,7 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 py-3 px-6 rounded-md font-semibold text-sm transition-all hover:scale-105"
-                style={{ backgroundColor: "#d47828", color: "#1a0a00", fontFamily: "var(--font-dm-sans)" }}
+                style={{ backgroundColor: "var(--primary)", color: "var(--primary-foreground)", fontFamily: "var(--font-dm-sans)" }}
               >
                 <MapPin size={16} />
                 Get Directions
@@ -132,7 +132,7 @@ export default function ContactPage() {
               <div>
                 <div className="label-accent mb-3">Opening Hours</div>
                 <div className="flex items-center gap-3 mb-4">
-                  <h2 className="text-cream font-bold text-2xl" style={{ fontFamily: "var(--font-playfair)" }}>
+                  <h2 className="text-foreground font-bold text-2xl">
                     When to Visit
                   </h2>
                   {openStatus !== null && (
@@ -153,7 +153,7 @@ export default function ContactPage() {
 
               <div
                 className="rounded-xl overflow-hidden"
-                style={{ border: "1px solid rgba(212,120,40,0.15)", backgroundColor: "#2d1200" }}
+                style={{ border: "1px solid var(--border)", backgroundColor: "var(--secondary)" }}
               >
                 {dayOrder.map((day) => {
                   const isToday = day === todayDay;
@@ -163,15 +163,16 @@ export default function ContactPage() {
                       key={day}
                       className="flex items-center justify-between px-4 py-3 border-b last:border-b-0"
                       style={{
-                        borderColor: "rgba(212,120,40,0.1)",
-                        backgroundColor: isToday ? "rgba(212,120,40,0.08)" : "transparent",
+                        borderColor: "var(--border)",
+                        backgroundColor: isToday ? "var(--primary-alpha)" : "transparent",
                       }}
                     >
                       <span
                         className="text-sm font-medium"
                         style={{
                           fontFamily: "var(--font-dm-sans)",
-                          color: isToday ? "#f0a040" : "rgba(245,221,176,0.65)",
+                          color: isToday ? "var(--primary)" : "var(--foreground)",
+                          opacity: isToday ? 1 : 0.65,
                           fontWeight: isToday ? 600 : 400,
                         }}
                       >
@@ -181,7 +182,8 @@ export default function ContactPage() {
                         className="text-sm"
                         style={{
                           fontFamily: "var(--font-dm-sans)",
-                          color: isToday ? "#f5ddb0" : "rgba(245,221,176,0.5)",
+                          color: isToday ? "var(--foreground)" : "var(--foreground)",
+                          opacity: isToday ? 1 : 0.5,
                         }}
                       >
                         {formatTime(dayHours.open)} – {formatTime(dayHours.close)}
@@ -191,8 +193,8 @@ export default function ContactPage() {
                 })}
               </div>
 
-              <div className="flex items-center gap-2 text-cream/40 text-xs" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                <Clock size={14} className="text-amber/50" />
+              <div className="flex items-center gap-2 text-foreground/40 text-xs" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                <Clock size={14} className="text-primary/50" />
                 Hours shown in IST (Indian Standard Time)
               </div>
             </motion.div>
@@ -207,7 +209,7 @@ export default function ContactPage() {
             >
               <div>
                 <div className="label-accent mb-3">Contact</div>
-                <h2 className="text-cream font-bold text-2xl" style={{ fontFamily: "var(--font-playfair)" }}>
+                <h2 className="text-foreground font-bold text-2xl">
                   Get In Touch
                 </h2>
               </div>
@@ -217,15 +219,15 @@ export default function ContactPage() {
                 <a
                   href="tel:+919920564615"
                   className="flex items-center gap-4 p-4 rounded-xl transition-all hover:scale-[1.02] group"
-                  style={{ backgroundColor: "#2d1200", border: "1px solid rgba(212,120,40,0.2)" }}
+                  style={{ backgroundColor: "var(--secondary)", border: "1px solid var(--border)" }}
                 >
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 group-hover:bg-amber/20 transition-colors"
-                    style={{ backgroundColor: "rgba(212,120,40,0.12)" }}>
-                    <Phone size={20} className="text-amber" />
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors"
+                    style={{ backgroundColor: "var(--primary-alpha)" }}>
+                    <Phone size={20} className="text-primary" />
                   </div>
                   <div>
                     <div className="label-accent mb-0.5">Call Us</div>
-                    <div className="text-cream font-medium text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    <div className="text-foreground font-medium text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
                       +91 992-056-4615
                     </div>
                   </div>
@@ -237,7 +239,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl transition-all hover:scale-[1.02] group"
-                  style={{ backgroundColor: "#2d1200", border: "1px solid rgba(212,120,40,0.2)" }}
+                  style={{ backgroundColor: "var(--secondary)", border: "1px solid var(--border)" }}
                 >
                   <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 group-hover:bg-green-500/20 transition-colors"
                     style={{ backgroundColor: "rgba(37,211,102,0.1)" }}>
@@ -245,7 +247,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className="label-accent mb-0.5">WhatsApp</div>
-                    <div className="text-cream font-medium text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    <div className="text-foreground font-medium text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
                       Message Us Directly
                     </div>
                   </div>
@@ -255,15 +257,15 @@ export default function ContactPage() {
                 <a
                   href="mailto:gossipcafe2024@gmail.com"
                   className="flex items-center gap-4 p-4 rounded-xl transition-all hover:scale-[1.02] group"
-                  style={{ backgroundColor: "#2d1200", border: "1px solid rgba(212,120,40,0.2)" }}
+                  style={{ backgroundColor: "var(--secondary)", border: "1px solid var(--border)" }}
                 >
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 group-hover:bg-amber/20 transition-colors"
-                    style={{ backgroundColor: "rgba(212,120,40,0.12)" }}>
-                    <Mail size={20} className="text-amber" />
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors"
+                    style={{ backgroundColor: "var(--primary-alpha)" }}>
+                    <Mail size={20} className="text-primary" />
                   </div>
                   <div>
                     <div className="label-accent mb-0.5">Email</div>
-                    <div className="text-cream font-medium text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    <div className="text-foreground font-medium text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
                       gossipcafe2024@gmail.com
                     </div>
                   </div>
@@ -275,7 +277,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl transition-all hover:scale-[1.02] group"
-                  style={{ backgroundColor: "#2d1200", border: "1px solid rgba(212,120,40,0.2)" }}
+                  style={{ backgroundColor: "var(--secondary)", border: "1px solid var(--border)" }}
                 >
                   <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 group-hover:bg-pink-500/20 transition-colors"
                     style={{ backgroundColor: "rgba(236,72,153,0.1)" }}>
@@ -283,7 +285,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className="label-accent mb-0.5">Instagram</div>
-                    <div className="text-cream font-medium text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    <div className="text-foreground font-medium text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
                       @gossip_cafeandrestro
                     </div>
                   </div>

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingCTAs } from "@/components/FloatingCTAs";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -43,12 +44,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${dmSans.variable} ${cormorant.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${playfair.variable} ${dmSans.variable} ${cormorant.variable}`}>
       <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <FloatingCTAs />
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <FloatingCTAs />
+        </ThemeProvider>
       </body>
     </html>
   );

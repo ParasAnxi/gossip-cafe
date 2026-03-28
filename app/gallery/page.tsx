@@ -40,7 +40,7 @@ export default function GalleryPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-[#1a0a00]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-background" />
         <div className="relative z-10 text-center px-6">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="label-accent mb-3">
             Visual Stories
@@ -49,8 +49,8 @@ export default function GalleryPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-cream font-bold"
-            style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(32px, 6vw, 56px)" }}
+            className="text-foreground font-bold"
+            style={{ fontSize: "clamp(32px, 6vw, 56px)" }}
           >
             Our Gallery
           </motion.h1>
@@ -60,7 +60,7 @@ export default function GalleryPage() {
       {/* Filter Tabs */}
       <div
         className="sticky top-16 z-30 border-b"
-        style={{ backgroundColor: "rgba(26,10,0,0.95)", borderColor: "rgba(212,120,40,0.2)", backdropFilter: "blur(12px)" }}
+        style={{ backgroundColor: "var(--background)", borderColor: "var(--border)", backdropFilter: "blur(12px)", opacity: 0.95 }}
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-1 py-1">
@@ -71,7 +71,8 @@ export default function GalleryPage() {
                 className="relative px-5 py-3 text-sm font-medium transition-colors"
                 style={{
                   fontFamily: "var(--font-dm-sans)",
-                  color: activeFilter === tab.key ? "#d47828" : "rgba(245,221,176,0.6)",
+                  color: activeFilter === tab.key ? "var(--primary)" : "var(--foreground)",
+                  opacity: activeFilter === tab.key ? 1 : 0.6,
                 }}
               >
                 {tab.label}
@@ -79,7 +80,7 @@ export default function GalleryPage() {
                   <motion.div
                     layoutId="gallery-tab-underline"
                     className="absolute bottom-0 left-0 right-0 h-0.5"
-                    style={{ backgroundColor: "#d47828" }}
+                    style={{ backgroundColor: "var(--primary)" }}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -90,7 +91,7 @@ export default function GalleryPage() {
       </div>
 
       {/* Masonry Grid */}
-      <section className="py-12" style={{ backgroundColor: "#1a0a00" }}>
+      <section className="py-12" style={{ backgroundColor: "var(--background)" }}>
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <AnimatePresence mode="wait">
             <motion.div
@@ -120,7 +121,7 @@ export default function GalleryPage() {
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
                     {item.title && (
                       <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/70 to-transparent">
-                        <p className="text-cream text-sm font-medium" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                        <p className="text-white text-sm font-medium" style={{ fontFamily: "var(--font-dm-sans)" }}>
                           {item.title}
                         </p>
                       </div>
@@ -164,7 +165,7 @@ export default function GalleryPage() {
                 />
               </div>
               {filteredItems[lightboxIndex].title && (
-                <p className="text-center text-cream/60 mt-3 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                <p className="text-center text-white/60 mt-3 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
                   {filteredItems[lightboxIndex].title}
                 </p>
               )}
@@ -181,13 +182,13 @@ export default function GalleryPage() {
             {/* Navigation */}
             <button
               onClick={(e) => { e.stopPropagation(); prevItem(); }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-cream/60 hover:text-amber transition-colors"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-primary transition-colors"
             >
               <ChevronLeft size={48} />
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); nextItem(); }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-cream/60 hover:text-amber transition-colors"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-primary transition-colors"
             >
               <ChevronRight size={48} />
             </button>

@@ -45,7 +45,7 @@ export default function AboutPage() {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ opacity: 0.35 }}
         />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(26,10,0,0.7)" }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-background" />
         <div className="relative z-10 text-center px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -59,8 +59,8 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-cream font-bold leading-tight"
-            style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(36px, 7vw, 64px)" }}
+            className="text-foreground font-bold leading-tight"
+            style={{ fontSize: "clamp(36px, 7vw, 64px)" }}
           >
             The GO-SSIP Story
           </motion.h1>
@@ -68,7 +68,7 @@ export default function AboutPage() {
       </section>
 
       {/* Brand Story */}
-      <section className="py-20 lg:py-28" style={{ backgroundColor: "#1a0a00" }}>
+      <section className="py-20 lg:py-28" style={{ backgroundColor: "var(--background)" }}>
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <motion.div
@@ -78,10 +78,10 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
             >
               <div className="label-accent mb-4">Who We Are</div>
-              <p className="text-cream/70 leading-relaxed mb-6" style={{ fontFamily: "var(--font-dm-sans)", fontSize: "17px" }}>
+              <p className="text-foreground/70 leading-relaxed mb-6" style={{ fontFamily: "var(--font-dm-sans)", fontSize: "17px" }}>
                 Born from a passion for bringing people together, GO-SSIP Café & Restro opened its doors in Mumbra, Thane as a celebration of flavours, warmth, and community. We believed that the best memories are made over shared meals and great drinks.
               </p>
-              <p className="text-cream/70 leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)", fontSize: "17px" }}>
+              <p className="text-foreground/70 leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)", fontSize: "17px" }}>
                 Our team crafts each cup of coffee and every dish with unwavering attention to detail — from our slow-steeped cold brews to our hand-rolled bao. We source the finest ingredients and pair international techniques with local flavours to create something truly unique.
               </p>
             </motion.div>
@@ -95,11 +95,11 @@ export default function AboutPage() {
               {/* Pull quote */}
               <blockquote
                 className="relative pl-6 py-2"
-                style={{ borderLeft: "3px solid #d47828" }}
+                style={{ borderLeft: "3px solid var(--primary)" }}
               >
                 <p
-                  className="text-cream italic leading-relaxed"
-                  style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(18px, 2.5vw, 24px)" }}
+                  className="text-foreground italic leading-relaxed"
+                  style={{ fontSize: "clamp(18px, 2.5vw, 24px)" }}
                 >
                   &ldquo;We didn&apos;t open GO-SSIP to just serve food. We opened it to create a space where Mumbra could breathe, laugh, and belong.&rdquo;
                 </p>
@@ -107,12 +107,12 @@ export default function AboutPage() {
               </blockquote>
 
               <div className="mt-10 grid grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl text-center" style={{ backgroundColor: "rgba(212,120,40,0.08)", border: "1px solid rgba(212,120,40,0.15)" }}>
-                  <div className="text-amber font-bold text-3xl" style={{ fontFamily: "var(--font-playfair)" }}>2024</div>
+                <div className="p-4 rounded-xl text-center" style={{ backgroundColor: "var(--secondary)", border: "1px solid var(--border)" }}>
+                  <div className="text-primary font-bold text-3xl" style={{ fontFamily: "var(--font-playfair)" }}>2024</div>
                   <div className="label-accent mt-1">Est. Year</div>
                 </div>
-                <div className="p-4 rounded-xl text-center" style={{ backgroundColor: "rgba(212,120,40,0.08)", border: "1px solid rgba(212,120,40,0.15)" }}>
-                  <div className="text-amber font-bold text-3xl" style={{ fontFamily: "var(--font-playfair)" }}>6+</div>
+                <div className="p-4 rounded-xl text-center" style={{ backgroundColor: "var(--secondary)", border: "1px solid var(--border)" }}>
+                  <div className="text-primary font-bold text-3xl" style={{ fontFamily: "var(--font-playfair)" }}>6+</div>
                   <div className="label-accent mt-1">Menu Categories</div>
                 </div>
               </div>
@@ -122,20 +122,20 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 lg:py-24" style={{ backgroundColor: "#2d1200" }}>
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-14"
-          >
-            <div className="label-accent mb-3">What We Stand For</div>
-            <h2 className="text-cream" style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(28px, 5vw, 44px)" }}>
-              Our Values
-            </h2>
-          </motion.div>
+    <section className="py-20 lg:py-24" style={{ backgroundColor: "var(--background)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <div className="label-accent mb-3">What We Stand For</div>
+          <h2 className="text-foreground" style={{ fontSize: "clamp(28px, 5vw, 44px)" }}>
+            Our Values
+          </h2>
+        </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((value, i) => (
@@ -146,18 +146,18 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
                 className="flex flex-col items-center text-center gap-5 p-8 rounded-2xl"
-                style={{ backgroundColor: "rgba(26,10,0,0.6)", border: "1px solid rgba(212,120,40,0.15)" }}
+                style={{ backgroundColor: "var(--secondary)", border: "1px solid var(--border)" }}
               >
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: "rgba(212,120,40,0.12)", border: "1px solid rgba(212,120,40,0.3)" }}
+                  style={{ backgroundColor: "var(--primary)", opacity: 0.1, border: "1px solid var(--primary)" }}
                 >
-                  <value.icon size={28} style={{ color: "#d47828" }} />
+                  <value.icon size={28} className="text-primary" />
                 </div>
-                <h3 className="text-cream font-bold" style={{ fontFamily: "var(--font-playfair)", fontSize: "22px" }}>
+                <h3 className="text-foreground font-bold" style={{ fontSize: "22px" }}>
                   {value.title}
                 </h3>
-                <p className="text-cream/60 leading-relaxed text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                <p className="text-foreground/60 leading-relaxed text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
                   {value.description}
                 </p>
               </motion.div>
@@ -167,20 +167,20 @@ export default function AboutPage() {
       </section>
 
       {/* Photo Collage */}
-      <section className="py-20 lg:py-28" style={{ backgroundColor: "#1a0a00" }}>
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <div className="label-accent mb-3">Inside GO-SSIP</div>
-            <h2 className="text-cream" style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(28px, 5vw, 44px)" }}>
-              The Experience
-            </h2>
-          </motion.div>
+      <section className="py-20 lg:py-28" style={{ backgroundColor: "var(--background)" }}>
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <motion.div
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.6 }}
+           className="text-center mb-12"
+         >
+           <div className="label-accent mb-3">Inside GO-SSIP</div>
+           <h2 className="text-foreground" style={{ fontSize: "clamp(28px, 5vw, 44px)" }}>
+             The Experience
+           </h2>
+         </motion.div>
 
           {/* Asymmetric grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[200px]">

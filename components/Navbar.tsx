@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, X, Menu } from "lucide-react";
 import Image from "next/image";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -44,9 +45,10 @@ export function Navbar() {
           right: 0,
           zIndex: 50,
           transition: "background-color 300ms ease, border-color 300ms ease",
-          backgroundColor: scrolled ? "rgba(26,10,0,0.96)" : "transparent",
-          borderBottom: scrolled ? "1px solid rgba(212,120,40,0.4)" : "1px solid transparent",
+          backgroundColor: scrolled ? "var(--background)" : "transparent",
+          borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
           backdropFilter: scrolled ? "blur(12px)" : "none",
+          opacity: 0.98,
         }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -56,11 +58,11 @@ export function Navbar() {
               <Image src="/images/logo.jpg" alt="GO-SSIP Café" width={40} height={40} className="object-cover warm-grade" />
             </div>
             <span
-              className="text-cream font-bold text-lg leading-tight"
+              className="text-foreground font-bold text-lg leading-tight"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
               GO-SSIP<br />
-              <span className="text-xs font-normal tracking-widest text-amber" style={{ fontFamily: "var(--font-dm-sans)" }}>CAFÉ & RESTRO</span>
+              <span className="text-xs font-normal tracking-widest text-primary" style={{ fontFamily: "var(--font-dm-sans)" }}>CAFÉ & RESTRO</span>
             </span>
           </Link>
 
@@ -71,7 +73,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`nav-link text-sm font-medium transition-colors duration-200 ${
-                  pathname === link.href ? "text-amber" : "text-cream/80 hover:text-cream"
+                  pathname === link.href ? "text-primary" : "text-foreground/80 hover:text-foreground"
                 }`}
                 style={{ fontFamily: "var(--font-dm-sans)" }}
               >
@@ -81,11 +83,12 @@ export function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             <a
               href="tel:+919920564615"
-              className="flex items-center gap-2 px-5 py-2 rounded-md font-semibold text-sm text-espresso transition-all duration-200 hover:scale-105"
-              style={{ backgroundColor: "#d47828", fontFamily: "var(--font-dm-sans)" }}
+              className="flex items-center gap-2 px-5 py-2 rounded-md font-semibold text-sm text-primary-foreground transition-all duration-200 hover:scale-105"
+              style={{ backgroundColor: "var(--primary)", fontFamily: "var(--font-dm-sans)" }}
             >
               <Phone size={14} />
               Call Us
@@ -93,13 +96,16 @@ export function Navbar() {
           </div>
 
           {/* Mobile Hamburger */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-cream hover:text-amber transition-colors p-2"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex md:hidden items-center gap-2">
+            <ThemeToggle />
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="text-foreground hover:text-primary transition-colors p-2"
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </motion.nav>
 
@@ -112,16 +118,16 @@ export function Navbar() {
             exit={{ x: "100%" }}
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="fixed inset-0 z-40 flex flex-col"
-            style={{ backgroundColor: "#1a0a00" }}
+            style={{ backgroundColor: "var(--background)" }}
           >
-            <div className="flex items-center justify-between px-6 h-16 border-b border-amber/20">
+            <div className="flex items-center justify-between px-6 h-16 border-b border-border">
               <Link href="/" className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-amber/40">
+                <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary/40">
                   <Image src="/images/logo.jpg" alt="GO-SSIP Café" width={40} height={40} className="object-cover" />
                 </div>
-                <span className="text-cream font-bold" style={{ fontFamily: "var(--font-playfair)" }}>GO-SSIP</span>
+                <span className="text-foreground font-bold" style={{ fontFamily: "var(--font-playfair)" }}>GO-SSIP</span>
               </Link>
-              <button onClick={() => setMobileOpen(false)} className="text-cream hover:text-amber p-2">
+              <button onClick={() => setMobileOpen(false)} className="text-foreground hover:text-primary p-2">
                 <X size={24} />
               </button>
             </div>
@@ -136,8 +142,8 @@ export function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className={`block text-3xl font-bold py-3 border-b border-amber/10 transition-colors ${
-                      pathname === link.href ? "text-amber" : "text-cream hover:text-amber"
+                    className={`block text-3xl font-bold py-3 border-b border-border/50 transition-colors ${
+                      pathname === link.href ? "text-primary" : "text-foreground hover:text-primary"
                     }`}
                     style={{ fontFamily: "var(--font-playfair)" }}
                   >
@@ -149,11 +155,11 @@ export function Navbar() {
 
             {/* Bottom contact info */}
             <div className="px-8 pb-12 flex flex-col gap-3">
-              <a href="tel:+919920564615" className="flex items-center gap-3 text-cream/70 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                <Phone size={16} className="text-amber" />
+              <a href="tel:+919920564615" className="flex items-center gap-3 text-foreground/70 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                <Phone size={16} className="text-primary" />
                 +91 992-056-4615
               </a>
-              <a href="https://instagram.com/gossip_cafeandrestro" target="_blank" rel="noopener noreferrer" className="text-cream/70 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <a href="https://instagram.com/gossip_cafeandrestro" target="_blank" rel="noopener noreferrer" className="text-foreground/70 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 @gossip_cafeandrestro
               </a>
             </div>
