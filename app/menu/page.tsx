@@ -78,7 +78,7 @@ export default function MenuPage() {
                 onClick={() => setActiveCategory(cat.key)}
                 className="relative flex items-center gap-1.5 px-4 py-3 text-sm font-medium transition-colors whitespace-nowrap"
                 style={{
-                  fontFamily: "var(--font-dm-sans)",
+                  fontFamily: "var(--font-sans)",
                   color: activeCategory === cat.key ? "var(--primary)" : "var(--foreground)",
                   opacity: activeCategory === cat.key ? 1 : 0.6,
                 }}
@@ -163,7 +163,7 @@ export default function MenuPage() {
                     >
                       {item.name}
                     </h3>
-                    <p className="text-sm leading-relaxed text-foreground/70" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    <p className="text-sm leading-relaxed text-foreground/70" style={{ fontFamily: "var(--font-sans)" }}>
                       {item.description}
                     </p>
                   </div>
@@ -174,7 +174,7 @@ export default function MenuPage() {
 
           {filteredItems.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-amber text-lg" style={{ fontFamily: "var(--font-playfair)" }}>No items found.</p>
+              <p className="text-amber text-lg" style={{ fontFamily: "var(--font-display)" }}>No items found.</p>
             </div>
           )}
         </div>

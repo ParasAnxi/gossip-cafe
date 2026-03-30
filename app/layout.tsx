@@ -1,29 +1,18 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans, Cormorant_Garamond } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingCTAs } from "@/components/FloatingCTAs";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
-const playfair = Playfair_Display({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-outfit",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-dm-sans",
-  display: "swap",
-});
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  variable: "--font-cormorant",
-  weight: ["400", "600"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "GO-SSIP Café & Restro | Mumbra, Thane",
@@ -44,9 +33,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${playfair.variable} ${dmSans.variable} ${cormorant.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${outfit.variable}`}>
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          {/* Aurora Background Layer */}
+          <div className="aurora-container">
+            <div className="aurora-blob aurora-blob-1"></div>
+            <div className="aurora-blob aurora-blob-2"></div>
+            <div className="aurora-blob aurora-blob-3"></div>
+          </div>
+          
           <Navbar />
           <main>{children}</main>
           <Footer />

@@ -33,7 +33,7 @@ export default function GalleryPage() {
         style={{ height: "45vh", minHeight: "280px" }}
       >
         <Image
-          src="/images/Create_a_premium_202603281541.png"
+          src="/images/gallery.png"
           alt="Gallery"
           fill
           className="object-cover warm-grade"
@@ -70,7 +70,7 @@ export default function GalleryPage() {
                 onClick={() => setActiveFilter(tab.key)}
                 className="relative px-5 py-3 text-sm font-medium transition-colors"
                 style={{
-                  fontFamily: "var(--font-dm-sans)",
+                  fontFamily: "var(--font-sans)",
                   color: activeFilter === tab.key ? "var(--primary)" : "var(--foreground)",
                   opacity: activeFilter === tab.key ? 1 : 0.6,
                 }}
@@ -121,7 +121,7 @@ export default function GalleryPage() {
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
                     {item.title && (
                       <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/70 to-transparent">
-                        <p className="text-white text-sm font-medium" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                        <p className="text-white text-sm font-medium" style={{ fontFamily: "var(--font-sans)" }}>
                           {item.title}
                         </p>
                       </div>
@@ -165,7 +165,7 @@ export default function GalleryPage() {
                 />
               </div>
               {filteredItems[lightboxIndex].title && (
-                <p className="text-center text-white/60 mt-3 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                <p className="text-center text-white/60 mt-3 text-sm" style={{ fontFamily: "var(--font-sans)" }}>
                   {filteredItems[lightboxIndex].title}
                 </p>
               )}

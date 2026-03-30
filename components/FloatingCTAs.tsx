@@ -26,7 +26,7 @@ export function FloatingCTAs() {
         transition={{ delay: 1.2, type: "spring", stiffness: 300 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg"
+        className="w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg glass-panel"
         style={{ backgroundColor: "#25D366" }}
       >
         <WhatsAppIcon size={24} />
@@ -41,7 +41,7 @@ export function FloatingCTAs() {
         transition={{ delay: 1.4, type: "spring", stiffness: 300 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg text-primary-foreground"
+        className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg text-primary-foreground glass-panel"
         style={{ backgroundColor: "var(--primary)" }}
       >
         <Phone size={20} />

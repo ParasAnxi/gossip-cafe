@@ -6,8 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-dm-sans);
-  --font-display: var(--font-playfair);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-outfit);
   --font-accent: var(--font-cormorant);
   
   --color-primary: var(--primary);
@@ -27,45 +27,44 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #000000;
-  --card: #ffffff;
-  --card-foreground: #000000;
-  --popover: #ffffff;
-  --popover-foreground: #000000;
-  --primary: #ff6600;
-  --primary-foreground: #ffffff;
-  --secondary: #f4f4f5;
-  --secondary-foreground: #000000;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --accent: #ff6600;
-  --accent-foreground: #ffffff;
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: #e4e4e7;
-  --input: #e4e4e7;
-  --ring: #ff6600;
-  --radius: 0.75rem;
+  --background: #F0F7F4; /* Mint White */
+  --foreground: #042014; /* Deep Green Black */
+  --card: rgba(255, 255, 255, 0.4);
+  --card-foreground: #042014;
+  --popover: rgba(255, 255, 255, 0.4);
+  --popover-foreground: #042014;
+  --primary: #10B981;    /* Vibrant Emerald Green */
+  --primary-foreground: #FFFFFF;
+  --secondary: rgba(255, 255, 255, 0.6);
+  --secondary-foreground: #042014;
+  --muted: rgba(4, 32, 20, 0.1);
+  --muted-foreground: #064E3B; /* Forest Green */
+  --accent: #059669;     /* Deep Emerald */
+  --accent-foreground: #FFFFFF;
+  --border: rgba(4, 32, 20, 0.08);
+  --input: rgba(4, 32, 20, 0.08);
+  --ring: #10B981;
+  --radius: 1rem;
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ffffff;
-  --card: #121212;
-  --card-foreground: #ffffff;
-  --popover: #121212;
-  --popover-foreground: #ffffff;
-  --primary: #d4ff00;
-  --primary-foreground: #000000;
-  --secondary: #1a1a1a;
-  --secondary-foreground: #ffffff;
-  --muted: #1a1a1a;
-  --muted-foreground: #a1a1aa;
-  --accent: #d4ff00;
-  --accent-foreground: #000000;
-  --border: #27272a;
-  --input: #27272a;
-  --ring: #d4ff00;
+  --background: #020A06; /* Abyss Green */
+  --foreground: #E2F6EC; /* Mint Tinted White */
+  --card: rgba(6, 36, 23, 0.5); /* Very Dark Emerald */
+  --card-foreground: #E2F6EC;
+  --popover: rgba(6, 36, 23, 0.5);
+  --popover-foreground: #E2F6EC;
+  --primary: #10B981;    /* Vibrant Emerald */
+  --primary-foreground: #020A06;
+  --secondary: rgba(4, 28, 18, 0.5);
+  --secondary-foreground: #E2F6EC;
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: #6EE7B7; /* Light Mint */
+  --accent: #059669;     /* Deep Emerald */
+  --accent-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #10B981;
 }
 
 @layer base {
@@ -81,26 +80,86 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+    font-family: var(--font-sans), 'Outfit', system-ui, sans-serif;
     transition: background-color 300ms ease, color 300ms ease;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    /* Bold Sans for Light Mode (Freshness look) */
-    font-family: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
-    font-weight: 800;
-    text-transform: uppercase;
+    /* Outfit for ultra-modern precision */
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-weight: 700;
+    text-transform: none;
     letter-spacing: -0.02em;
     transition: all 300ms ease;
   }
 }
 
-.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-  /* Playfair for Dark Mode (Cup of Coffee look) */
-  font-family: var(--font-display), 'Playfair Display', Georgia, serif;
-  font-weight: 700;
-  text-transform: none;
-  letter-spacing: normal;
+/* Base Glassmorphism utility */
+.glass-panel {
+  background-color: rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-panel {
+  background-color: rgba(6, 36, 23, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Aurora background blobs */
+.aurora-container {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: var(--background);
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.6;
+  animation: float-blob 20s infinite alternate cubic-bezier(0.5, 0.2, 0.5, 0.8);
+}
+
+.aurora-blob-1 {
+  background: var(--primary); /* Emerald */
+  width: 50vw;
+  height: 50vh;
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.aurora-blob-2 {
+  background: var(--accent); /* Forest Green */
+  width: 60vw;
+  height: 60vh;
+  bottom: -20%;
+  right: -10%;
+  animation-delay: -5s;
+}
+
+.aurora-blob-3 {
+  background: #34D399; /* Mint Green */
+  width: 40vw;
+  height: 40vh;
+  top: 40%;
+  left: 30%;
+  opacity: 0.4;
+  animation-delay: -10s;
+}
+
+@keyframes float-blob {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5vw, 5vh) scale(1.1); }
+  66% { transform: translate(-5vw, 10vh) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
 }
 
 /* Grain texture overlay */
@@ -160,24 +219,24 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #1a0a00;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #d47828;
+  background: var(--primary);
   border-radius: 3px;
 }
 
-/* Cormorant label style */
+/* Modern label style */
 .label-accent {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
-  font-weight: 600;
+  font-family: var(--font-sans), 'Outfit', system-ui, sans-serif;
+  font-weight: 700;
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #d47828;
+  letter-spacing: 0.15em;
+  color: var(--primary);
 }
 
-/* Amber underline hover */
+/* Primary underline hover */
 .nav-link {
   position: relative;
   overflow: hidden;
@@ -189,7 +248,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: #d47828;
+  background: var(--primary);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 200ms ease;

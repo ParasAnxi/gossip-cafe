@@ -88,7 +88,7 @@ export default function ContactPage() {
                 </h2>
                 <div className="flex items-start gap-3 mb-4">
                    <MapPin size={18} className="text-primary mt-0.5 shrink-0" />
-                   <p className="text-foreground/70 text-sm leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                   <p className="text-foreground/70 text-sm leading-relaxed" style={{ fontFamily: "var(--font-sans)" }}>
                     Central Empire, MM Valley C1 Road,<br />
                     Mumbra, Thane,<br />
                     Maharashtra 400612
@@ -114,7 +114,7 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 py-3 px-6 rounded-md font-semibold text-sm transition-all hover:scale-105"
-                style={{ backgroundColor: "var(--primary)", color: "var(--primary-foreground)", fontFamily: "var(--font-dm-sans)" }}
+                style={{ backgroundColor: "var(--primary)", color: "var(--primary-foreground)", fontFamily: "var(--font-sans)" }}
               >
                 <MapPin size={16} />
                 Get Directions
@@ -139,7 +139,7 @@ export default function ContactPage() {
                     <span
                       className="px-3 py-1 rounded-full text-xs font-semibold"
                       style={{
-                        fontFamily: "var(--font-dm-sans)",
+                        fontFamily: "var(--font-sans)",
                         backgroundColor: openStatus ? "rgba(34,197,94,0.15)" : "rgba(239,68,68,0.15)",
                         color: openStatus ? "#22c55e" : "#ef4444",
                         border: `1px solid ${openStatus ? "rgba(34,197,94,0.3)" : "rgba(239,68,68,0.3)"}`,
@@ -170,7 +170,7 @@ export default function ContactPage() {
                       <span
                         className="text-sm font-medium"
                         style={{
-                          fontFamily: "var(--font-dm-sans)",
+                          fontFamily: "var(--font-sans)",
                           color: isToday ? "var(--primary)" : "var(--foreground)",
                           opacity: isToday ? 1 : 0.65,
                           fontWeight: isToday ? 600 : 400,
@@ -181,7 +181,7 @@ export default function ContactPage() {
                       <span
                         className="text-sm"
                         style={{
-                          fontFamily: "var(--font-dm-sans)",
+                          fontFamily: "var(--font-sans)",
                           color: isToday ? "var(--foreground)" : "var(--foreground)",
                           opacity: isToday ? 1 : 0.5,
                         }}
@@ -193,7 +193,7 @@ export default function ContactPage() {
                 })}
               </div>
 
-              <div className="flex items-center gap-2 text-foreground/40 text-xs" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <div className="flex items-center gap-2 text-foreground/40 text-xs" style={{ fontFamily: "var(--font-sans)" }}>
                 <Clock size={14} className="text-primary/50" />
                 Hours shown in IST (Indian Standard Time)
               </div>
@@ -227,7 +227,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className="label-accent mb-0.5">Call Us</div>
-                    <div className="text-foreground font-medium text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    <div className="text-foreground font-medium text-sm" style={{ fontFamily: "var(--font-sans)" }}>
                       +91 992-056-4615
                     </div>
                   </div>
@@ -247,7 +247,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className="label-accent mb-0.5">WhatsApp</div>
-                    <div className="text-foreground font-medium text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    <div className="text-foreground font-medium text-sm" style={{ fontFamily: "var(--font-sans)" }}>
                       Message Us Directly
                     </div>
                   </div>
@@ -265,7 +265,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className="label-accent mb-0.5">Email</div>
-                    <div className="text-foreground font-medium text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    <div className="text-foreground font-medium text-sm" style={{ fontFamily: "var(--font-sans)" }}>
                       gossipcafe2024@gmail.com
                     </div>
                   </div>
@@ -285,7 +285,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className="label-accent mb-0.5">Instagram</div>
-                    <div className="text-foreground font-medium text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    <div className="text-foreground font-medium text-sm" style={{ fontFamily: "var(--font-sans)" }}>
                       @gossip_cafeandrestro
                     </div>
                   </div>

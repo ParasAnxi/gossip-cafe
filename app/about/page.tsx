@@ -78,10 +78,10 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
             >
               <div className="label-accent mb-4">Who We Are</div>
-              <p className="text-foreground/70 leading-relaxed mb-6" style={{ fontFamily: "var(--font-dm-sans)", fontSize: "17px" }}>
+              <p className="text-foreground/70 leading-relaxed mb-6" style={{ fontFamily: "var(--font-sans)", fontSize: "17px" }}>
                 Born from a passion for bringing people together, GO-SSIP Café & Restro opened its doors in Mumbra, Thane as a celebration of flavours, warmth, and community. We believed that the best memories are made over shared meals and great drinks.
               </p>
-              <p className="text-foreground/70 leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)", fontSize: "17px" }}>
+              <p className="text-foreground/70 leading-relaxed" style={{ fontFamily: "var(--font-sans)", fontSize: "17px" }}>
                 Our team crafts each cup of coffee and every dish with unwavering attention to detail — from our slow-steeped cold brews to our hand-rolled bao. We source the finest ingredients and pair international techniques with local flavours to create something truly unique.
               </p>
             </motion.div>
@@ -108,11 +108,11 @@ export default function AboutPage() {
 
               <div className="mt-10 grid grid-cols-2 gap-4">
                 <div className="p-4 rounded-xl text-center" style={{ backgroundColor: "var(--secondary)", border: "1px solid var(--border)" }}>
-                  <div className="text-primary font-bold text-3xl" style={{ fontFamily: "var(--font-playfair)" }}>2024</div>
+                  <div className="text-primary font-bold text-3xl" style={{ fontFamily: "var(--font-display)" }}>2024</div>
                   <div className="label-accent mt-1">Est. Year</div>
                 </div>
                 <div className="p-4 rounded-xl text-center" style={{ backgroundColor: "var(--secondary)", border: "1px solid var(--border)" }}>
-                  <div className="text-primary font-bold text-3xl" style={{ fontFamily: "var(--font-playfair)" }}>6+</div>
+                  <div className="text-primary font-bold text-3xl" style={{ fontFamily: "var(--font-display)" }}>6+</div>
                   <div className="label-accent mt-1">Menu Categories</div>
                 </div>
               </div>
@@ -157,7 +157,7 @@ export default function AboutPage() {
                 <h3 className="text-foreground font-bold" style={{ fontSize: "22px" }}>
                   {value.title}
                 </h3>
-                <p className="text-foreground/60 leading-relaxed text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                <p className="text-foreground/60 leading-relaxed text-sm" style={{ fontFamily: "var(--font-sans)" }}>
                   {value.description}
                 </p>
               </motion.div>
